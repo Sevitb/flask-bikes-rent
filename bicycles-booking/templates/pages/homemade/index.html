@@ -1,0 +1,653 @@
+{% extends "index.html" %}
+
+{% from "components/_product-card.html" import render_product_card %}
+{% from "components/_form-helper.html" import render_field %}
+
+{% block content %}
+<section>
+    <div id="default-carousel" class="relative w-full md:h-screen" data-carousel="slide">
+        <!-- Carousel wrapper -->
+        <div class="relative h-56 overflow-hidden md:h-screen rounded-lg md:h-96">
+            <!-- Item 1 -->
+            <div class="hidden duration-700 h-screen ease-in-out" data-carousel-item>
+                <img src="https://flowbite.s3.amazonaws.com/docs/gallery/square/image-3.jpg"
+                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+            </div>
+            <!-- Item 2 -->
+            <div class="hidden duration-700 h-screen ease-in-out" data-carousel-item>
+                <img src="https://experiencelife.lifetime.life/wp-content/uploads/2021/02/Bike_to_Work.jpg"
+                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+            </div>
+            <!-- Item 3 -->
+            <div class="hidden duration-700 h-screen ease-in-out" data-carousel-item>
+                <img src="https://www.sydney.com/sites/sydney/files/styles/landscape_992x558/public/2020-07/153319_0.jpg?itok=xl0yuNv3"
+                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+            </div>
+        </div>
+        <!-- Slider indicators -->
+        <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
+            <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1"
+                data-carousel-slide-to="0"></button>
+            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2"
+                data-carousel-slide-to="1"></button>
+            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3"
+                data-carousel-slide-to="2"></button>
+        </div>
+        <!-- Slider controls -->
+        <button type="button"
+            class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+            data-carousel-prev>
+            <span
+                class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                <span class="sr-only">Previous</span>
+            </span>
+        </button>
+        <button type="button"
+            class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+            data-carousel-next>
+            <span
+                class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none"
+                    stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+                <span class="sr-only">Next</span>
+            </span>
+        </button>
+    </div>
+</section>
+
+<section id="about" class="py-12">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 px-3 space-y-6">
+        <div class="flex flex-wrap gap-3">
+            <div class="flex-auto mb-4 ">
+                <h2 class="text-4xl font-bold mb-2"><span
+                        class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Именно
+                        то,</span> что нужно Вам!</h2>
+                <h6 class="text-lg text-gray-600">Прокат великов – это выгодно и удобно </h6>
+            </div>
+            <div class="flex-auto w-1/2">
+                <p class="text-lg font-normal text-gray-800 lg:text-xl">Иметь собственный велосипед – это здорово, но не
+                    у всех есть возможность его приобрести. Кому-то просто
+                    не хватает денег, другие живут в маленькой съемной комнате, где нет места для хранения байка. Какой
+                    бы
+                    ни была причина отсутствия у вас личного велосипеда, это не повод отказываться от катания, ведь вам
+                    всегда доступен прокат великов. </p>
+            </div>
+        </div>
+
+
+        <div id="accordion-flush" data-accordion="collapse" data-active-classes="bg-white text-gray-900"
+            data-inactive-classes="text-gray-500">
+            <h4 id="accordion-flush-heading-1" class="text-2xl">
+                <button type="button"
+                    class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-500 border-b border-gray-200"
+                    data-accordion-target="#accordion-flush-body-1" aria-expanded="true"
+                    aria-controls="accordion-flush-body-1">
+                    <span>Что входит в услуги сервиса?</span>
+                    <svg data-accordion-icon class="w-6 h-6 rotate-180 shrink-0" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </h4>
+            <div id="accordion-flush-body-1" class="hidden" aria-labelledby="accordion-flush-heading-1">
+                <div class="py-5 border-b border-gray-200">
+                    <p class="text-lg mb-2 text-gray-500 ">
+                        Предприятие оказывает услуги по предоставлению в аренду велосипедов на срок от часа до
+                        нескольких суток. А так же обслуживание вашего велосипеда, также хранения в теплом сухом складу.
+                    </p>
+                </div>
+            </div>
+            <h4 id="accordion-flush-heading-2" class="text-2xl">
+                <button type="button"
+                    class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-500 border-b border-gray-200"
+                    data-accordion-target="#accordion-flush-body-2" aria-expanded="false"
+                    aria-controls="accordion-flush-body-2">
+                    <span>Какие условия проката?</span>
+                    <svg data-accordion-icon class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </h4>
+            <div id="accordion-flush-body-2" class="hidden" aria-labelledby="accordion-flush-heading-2">
+                <div class="py-5 border-b border-gray-200">
+                    <p class="text-lg mb-2 text-gray-500 ">
+                        Велосипеды и электросамокаты выдаются под залог паспорта, водительского удостоверения.
+                        Электроскутеры под залог паспорта при наличии Водительского удостоверения любой категории.
+                        В прокат выдаем от 18 лет, либо младше при сопровождении совершеннолетнего.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</section>
+
+<section id="catalog" class="py-12 bg-gray-100 bg-gradient-to-r to-sky-100/50 from-white">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 px-3 space-y-6">
+        <div>
+            <h2 class="text-4xl font-bold mb-2">Наш парк</h2>
+            <h6 class="text-lg text-gray-600">Выбери то, что тебе по душе!</h6>
+        </div>
+
+        <div class="mb-4 border-b border-gray-200 w-max my-0 mx-auto">
+            <ul class="flex flex-wrap -mb-px text-sm font-medium text-center" id="myTab"
+                data-tabs-toggle="#myTabContent" role="tablist">
+                <li class="mr-2" role="presentation">
+                    <button class="inline-block p-4 border-b-2 rounded-t-lg text-2xl" id="profile-tab"
+                        data-tabs-target="#profile" type="button" role="tab" aria-controls="profile"
+                        aria-selected="false">Аренда</button>
+                </li>
+                <li class="mr-2" role="presentation">
+                    <button
+                        class="inline-block p-4 border-b-2 border-transparent rounded-t-lg text-2xl hover:text-gray-800 hover:border-gray-300"
+                        id="dashboard-tab" data-tabs-target="#dashboard" type="button" role="tab"
+                        aria-controls="dashboard" aria-selected="false">Продажа</button>
+                </li>
+            </ul>
+        </div>
+        <div id="myTabContent">
+            <div class="hidden p-4 rounded-lg" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <div class="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3">
+                    {{ render_product_card(1,1,'Винтажный велосипед',350,
+                    url_for('static', filename='images/products/e_s_7.jpg'),
+                    'Легок в обращении, прост в управлении.') }}
+                    {{ render_product_card(1,1,'Электросамокат KUGOO KIRIN A1, 6000mAh, черный',350,
+                    url_for('static', filename='images/products/e_s_2.jpg'),
+                    'Быстрая модель с крепкой рамой, которая выдерживает вес пользователя до 100 кг.') }}
+                    {{ render_product_card(1,1,'Электросамокат Mijia Xiaomi M365 Black Pro',350,
+                    url_for('static', filename='images/products/e_s_2.jpg'),
+                    'Быстрая модель с крепкой рамой, которая выдерживает вес пользователя до 100 кг.') }}
+                    {{ render_product_card(1,1,'Моноколесо AW X3S+-130WH-BLACK',300,
+                    url_for('static', filename='images/products/e_s_3.jpg'),
+                    'Быстрая модель с крепкой рамой, которая выдерживает вес пользователя до 100 кг.') }}
+                    {{ render_product_card(1,1,'Forward, APACHE (2.2S), 21ск., M.DISK',400,
+                    url_for('static', filename='images/products/e_s_7.jpg'),
+                    'Быстрая модель с крепкой рамой, которая выдерживает вес до 100 кг.') }}
+                    {{ render_product_card(1,1,'26д TТ Storm, 21 ск., M.Disk',400,
+                    url_for('static', filename='images/products/e_s_7.jpg'),
+                    'Быстрая модель с крепкой рамой, которая выдерживает вес до 100 кг.') }}
+                </div>
+            </div>
+            <div class="hidden p-4 rounded-lg" id="dashboard" role="tabpanel" aria-labelledby="dashboard-tab">
+                <div class="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3">
+                    {{ render_product_card(1,2,'Винтажный велосипед',12000,
+                    url_for('static', filename='images/products/e_s_7.jpg'),
+                    'Легок в обращении, прост в управлении.') }}
+                    {{ render_product_card(1,2,'Моноколесо AW X3S+-130WH-BLACK',20000,
+                    url_for('static', filename='images/products/e_s_3.jpg'),
+                    'Быстрая модель с крепкой рамой, которая выдерживает вес до 100 кг.') }}
+                    {{ render_product_card(1,2,'26д TТ Storm, 21 ск., M.Disk',23000,
+                    url_for('static', filename='images/products/e_s_7.jpg'),
+                    'Быстрая модель с крепкой рамой, которая выдерживает вес до 100 кг.') }}
+                    {{ render_product_card(1,2,'Forward, APACHE (2.2S), 21ск., M.DISK',23000,
+                    url_for('static', filename='images/products/e_s_7.jpg'),
+                    'Быстрая модель с крепкой рамой, которая выдерживает вес до 100 кг.') }}
+                    {{ render_product_card(1,2,'Электросамокат KUGOO KIRIN A1, 6000mAh, черный',23000,
+                    url_for('static', filename='images/products/e_s_2.jpg'),
+                    'Быстрая модель с крепкой рамой, которая выдерживает вес до 100 кг.') }}
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section id="advantages" class="py-12">
+    <div class="gap-8 items-center py-2 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-5 lg:px-6">
+        <img class="w-full" src="https://express-novosti.ru/images/2020/07/4357351115f199722e5d141.19214759-full.jpg"
+            alt="dashboard image">
+        <div class="mt-4 md:mt-0">
+            <h2 class="mb-4 text-4xl tracking-tight font-bold text-gray-900 "><span
+                    class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Быстрый
+                    подбор</span> велосипеда и экипировки
+            </h2>
+            <p class="mb-6 text-lg font-normal lg:text-xl text-gray-500">
+                Мы знаем как это трудно - найти подходящюю именно Вам экипировку. Поэтому <strong> все уже есть
+                </strong> в наших центрах
+                аренды! Мы собрали все <strong>самое лучшее</strong>, чтобы облегчить Ваш выбор!
+            </p>
+        </div>
+    </div>
+    <div class="gap-8 items-center py-2 px-4 mx-auto max-w-screen-xl xl:gap-16 md:grid md:grid-cols-2 sm:py-5 lg:px-6">
+        <div class="mt-4 md:mt-0">
+            <h2 class="mb-4 text-4xl tracking-tight font-bold text-gray-900 "><span
+                    class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">Качественное</span>
+                обслуживание
+            </h2>
+            <p class="mb-6 text-lg font-normal lg:text-xl text-gray-500">
+                Любой товар требует бережного отношения и <strong>качественного обслуживания</strong>. Мы заботимся о
+                каждой мелочи, чтобы вам было приятнее приходить снова и снова!
+            </p>
+        </div>
+        <img class="w-full" src="https://img.bizorg.su/articles/042/dc4/042dc4512fa3_19.jpg" alt="dashboard image">
+    </div>
+</section>
+
+<section id="contacts" class="py-12 bg-gradient-to-r to-white from-sky-100">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 px-3 space-y-6">
+        <div class="grow-0 shrink-0 basis-auto w-full">
+            <div class="flex flex-wrap">
+                <div class="mb-12 grow-0 shrink-0 basis-auto w-full sm:w-6/12 lg:w-3/12 px-3 lg:px-6">
+                    <div class="flex md:items-start flex-col sm:flex-row items-center">
+                        <div class="shrink-0">
+                            <div
+                                class="p-4 bg-blue-600 rounded-md shadow-md w-14 h-14 flex items-center justify-center">
+                                <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="headset"
+                                    class="w-5 text-white" role="img" xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 512 512">
+                                    <path fill="currentColor"
+                                        d="M192 208c0-17.67-14.33-32-32-32h-16c-35.35 0-64 28.65-64 64v48c0 35.35 28.65 64 64 64h16c17.67 0 32-14.33 32-32V208zm176 144c35.35 0 64-28.65 64-64v-48c0-35.35-28.65-64-64-64h-16c-17.67 0-32 14.33-32 32v112c0 17.67 14.33 32 32 32h16zM256 0C113.18 0 4.58 118.83 0 256v16c0 8.84 7.16 16 16 16h16c8.84 0 16-7.16 16-16v-16c0-114.69 93.31-208 208-208s208 93.31 208 208h-.12c.08 2.43.12 165.72.12 165.72 0 23.35-18.93 42.28-42.28 42.28H320c0-26.51-21.49-48-48-48h-32c-26.51 0-48 21.49-48 48s21.49 48 48 48h181.72c49.86 0 90.28-40.42 90.28-90.28V256C507.42 118.83 398.82 0 256 0z">
+                                    </path>
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="grow ml-6">
+                            <p class="font-bold mb-1">Поддержка</p>
+                            <p class="text-gray-500">support@example.com</p>
+                            <p class="text-gray-500">+7(904)416 00 94</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-12 grow-0 shrink-0 basis-auto w-full sm:w-6/12 lg:w-3/12 px-3 lg:px-6">
+                    <div class="flex md:items-start flex-col sm:flex-row items-center">
+                        <div class="shrink-0">
+                            <div
+                                class="p-4 bg-blue-600 rounded-md shadow-md w-14 h-14 flex items-center justify-center">
+                                <i class="fa-solid fa-comment text-white"></i>
+                            </div>
+                        </div>
+                        <div class="grow ml-6">
+                            <p class="font-bold mb-1">Пишите</p>
+                            <p class="text-gray-500">7(904)416 00 94 (WhatsApp,Viber)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-12 grow-0 shrink-0 basis-auto w-full sm:w-6/12 lg:w-3/12 px-3 lg:px-6">
+                    <div class="flex md:items-start flex-col sm:flex-row items-center">
+                        <div class="shrink-0">
+                            <div
+                                class="p-4 bg-blue-600 rounded-md shadow-md w-14 h-14 flex items-center justify-center">
+                                <i class="fa-solid fa-location-dot text-white"></i>
+                            </div>
+                        </div>
+                        <div class="grow ml-6">
+                            <p class="font-bold mb-1">Адресс</p>
+                            <p class="text-gray-500">г.Волгоград ул.Рокоссовского 50</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-12 grow-0 shrink-0 basis-auto w-full sm:w-6/12 lg:w-3/12 px-3 lg:px-6">
+                    <div class="flex md:items-start flex-col sm:flex-row items-center">
+                        <div class="shrink-0">
+                            <div
+                                class="p-4 bg-blue-600 rounded-md shadow-md w-14 h-14 flex items-center justify-center">
+                                <i class="fa-solid fa-clock text-white"></i>
+                            </div>
+                        </div>
+                        <div class="grow ml-6">
+                            <p class="font-bold mb-1">Режим работы</p>
+                            <p class="text-gray-500">ПН-ПТ 11:00-24:00 СБ-ВСК 10:00-24:00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="grid lg:grid-cols-2 flex items-center">
+            <div class="md:mt-12 lg:mt-0 mb-12 lg:mb-0 z-20">
+                <div class="block rounded-lg bg-white shadow-lg px-6 py-12 md:px-12 lg:-mr-14">
+                    <h2 class="text-3xl font-bold mb-12">Контакты</h2>
+                    <form method="POST">
+                        {{ form.csrf_token }}
+                        <div class="form-group mb-6">
+                            {{ render_field(form.name) }}
+                        </div>
+                        <div class="form-group mb-6">
+                            {{ render_field(form.email) }}
+                        </div>
+                        <div class="form-group mb-6">
+                            {{ render_field(form.phone) }}
+                        </div>
+                        <div class="form-group mb-6">
+                            {{ render_field(form.message) }}
+                        </div>
+                        <button type="submit"
+                            class="w-full px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
+                            Отправить
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div id="map" class="h-96 w-full rounded-lg"></div>
+        </div>
+    </div>
+</section>
+
+<div id="cartModal" class="relative z-50 hidden" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
+    <!--
+      Background backdrop, show/hide based on slide-over state.
+  
+      Entering: "ease-in-out duration-500"
+        From: "opacity-0"
+        To: "opacity-100"
+      Leaving: "ease-in-out duration-500"
+        From: "opacity-100"
+        To: "opacity-0"
+    -->
+    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+
+    <div class="fixed inset-0 overflow-hidden">
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+                <!--
+            Slide-over panel, show/hide based on slide-over state.
+  
+            Entering: "transform transition ease-in-out duration-500 sm:duration-700"
+              From: "translate-x-full"
+              To: "translate-x-0"
+            Leaving: "transform transition ease-in-out duration-500 sm:duration-700"
+              From: "translate-x-0"
+              To: "translate-x-full"
+          -->
+                <div class="pointer-events-auto w-screen max-w-md">
+                    <div class="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
+                        <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
+                            <div class="flex items-start justify-between">
+                                <h2 class="text-lg font-medium text-gray-900" id="slide-over-title">Корзина</h2>
+                                <div class="ml-3 flex h-7 items-center">
+                                    <button data-modal-hide="cartModal" type="button"
+                                        class="-m-2 p-2 text-gray-400 hover:text-gray-500">
+                                        <span class="sr-only">Close panel</span>
+                                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                            stroke="currentColor" aria-hidden="true">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M6 18L18 6M6 6l12 12" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="mt-8">
+                                <div class="flow-root">
+                                    <ul role="list" class="-my-6 divide-y divide-gray-200" id="cartItems">
+                                        <li class="flex py-6">
+                                            <div
+                                                class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                                                <img src="https://itsmybike.ru/upload/iblock/d94/1tijum6tfxsc25hr5lo7vi0t5yyqbd9f/velosiped_linus_roadster_classic_black_2.jpg"
+                                                    alt="Вело-жигуль" class="h-full w-full object-cover object-center">
+                                            </div>
+
+                                            <div class="ml-4 flex flex-1 flex-col">
+                                                <div>
+                                                    <div
+                                                        class="flex justify-between text-base font-medium text-gray-900">
+                                                        <h3>
+                                                            <a href="#">Вело-жигуль</a>
+                                                        </h3>
+                                                        <p class="ml-4">12 000 ₽</p>
+                                                    </div>
+                                                    <p class="mt-1 text-sm text-gray-500">Модель</p>
+                                                </div>
+                                                <div class="flex flex-1 items-end justify-between text-sm">
+
+                                                    <div class="flex">
+                                                        <button type="button"
+                                                            class="font-medium text-indigo-600 hover:text-indigo-500">Удалить</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <!-- More products... -->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
+                            <div class="flex justify-between text-base font-medium text-gray-900">
+                                <p>Итог:</p>
+                                <p id="totalPrice">12 000</p>
+                            </div>
+                            <p class="mt-0.5 text-sm text-gray-500">Стоимость доставки и налоги рассчитываются при
+                                оформлении заказа.</p>
+                            <div class="mt-6">
+                                <button type="button" id="clear"
+                                    class="flex mb-3 items-center justify-center w-full rounded-md border border-transparent bg-gray-900 hover:bg-gray-800 transition-all px-6 py-3 text-base font-medium text-white shadow-sm ">Очистить
+                                    корзину</button>
+                                <button type="button" data-modal-target="checkoutModal"
+                                    data-modal-toggle="checkoutModal" data-modal-hide="cartModal"
+                                    class="flex items-center justify-center w-full rounded-md border border-transparent bg-sky-500 hover:bg-sky-600 transition-all px-6 py-3 text-base font-medium text-white shadow-sm ">Оформить
+                                    заказ</button>
+                            </div>
+                            <div class="mt-6 flex justify-center text-center text-sm text-gray-500">
+                                <p>
+                                    или
+                                    <button data-modal-hide="cartModal" type="button"
+                                        class="font-medium text-indigo-600 hover:text-indigo-500">
+                                        Продолжить покупки
+                                        <span aria-hidden="true"> &rarr;</span>
+                                    </button>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="checkoutModal" tabindex="-1" aria-hidden="true"
+    class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative w-full  max-w-2xl max-h-full bg-white rounded">
+        <div class="px-4 lg:px-8 lg:py-8 py-4">
+            <h4 class="text-2xl font-bold mb-5">Оформление заказа</h4>
+            <form action="/buy" method="POST" class="grid grid-cols-6 gap-4">
+                {{ buyForm.csrf_token }}
+                <div class="col-span-3">
+                    {{ render_field(buyForm.name) }}
+                </div>
+
+                <div class="col-span-3">
+                    {{ render_field(buyForm.surname) }}
+                </div>
+
+                <div class="col-span-6">
+                    {{ render_field(buyForm.email) }}
+                </div>
+
+                <div class="col-span-6">
+                    {{ render_field(buyForm.phone) }}
+                </div>
+
+                <fieldset class="col-span-6">
+                    <legend class="block text-sm font-medium text-gray-700">
+                        Данные карты
+                    </legend>
+
+                    <div class="mt-1 -space-y-px rounded-md bg-white shadow-sm">
+                        <div>
+                            {{ render_field(buyForm.card_number) }}
+                        </div>
+
+                        <div class="flex">
+                            <div class="flex-1">
+                                {{ render_field(buyForm.card_time) }}
+                            </div>
+
+                            <div class="-ms-px flex-1">
+                                {{ render_field(buyForm.card_cvc) }}
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset class="col-span-6">
+                    <legend class="block text-sm font-medium text-gray-700">
+                        Адрес доставки
+                    </legend>
+
+                    <div class="mt-1 -space-y-px rounded-md bg-white shadow-sm">
+                        <div>
+                            {{ render_field(buyForm.country) }}
+                        </div>
+
+                        <div>
+                            {{ render_field(buyForm.postal_code) }}
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="col-span-6">
+                    <button
+                        class="block w-full rounded-md bg-black p-2.5 text-sm text-white transition hover:shadow-lg">
+                        Оформить заказ
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<div id="messageModal" data-modal-target="messageModal" tabindex="-1" aria-hidden="true"
+    class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative w-full max-w-2xl max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow">
+            <!-- Modal header -->
+            <div class="flex items-start justify-between p-4 border-b rounded-t">
+                <h3 class="text-xl font-semibold text-gray-900">
+                    Terms of Service
+                </h3>
+                <button type="button"
+                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
+                    data-modal-hide="messageModal">
+                    <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+            </div>
+            <!-- Modal body -->
+            <div class="p-6 space-y-6">
+                <p class="text-base leading-relaxed text-gray-500">
+                    With less than a month to go before the European Union enacts new consumer privacy laws for its
+                    citizens, companies around the world are updating their terms of service agreements to comply.
+                </p>
+                <p class="text-base leading-relaxed text-gray-500">
+                    The European Union’s General Data Protection Regulation (G.D.P.R.) goes into effect on May 25 and is
+                    meant to ensure a common set of data rights in the European Union. It requires organizations to
+                    notify users as soon as possible of high-risk data breaches that could personally affect them.
+                </p>
+            </div>
+            <!-- Modal footer -->
+            <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b">
+                <button data-modal-hide="messageModal" type="button"
+                    class="text-white bg-sky-500 hover:bg-sky-400 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Отлично!</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="rentModalForm" tabindex="-1" aria-hidden="true"
+    class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative w-full max-w-2xl max-h-full">
+        <!-- Modal content -->
+        <div class="relative bg-white rounded-lg shadow">
+            <!-- Modal header -->
+            <div class="flex items-start justify-between p-4 border-b rounded-t">
+                <h3 class="text-xl font-semibold text-gray-900">
+                    Заявка на аренду
+                </h3>
+                <button type="button"
+                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center"
+                    data-modal-hide="rentModalForm">
+                    <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="sr-only">Close modal</span>
+                </button>
+            </div>
+            <!-- Modal body -->
+            <div class="p-6">
+                <form action="/rent" method="post" class="space-y-6">
+                    {{ form.csrf_token }}
+                    <div>
+                        {{ render_field(rentForm.name) }}
+                    </div>
+                    <div>
+                        {{ render_field(rentForm.email) }}
+                    </div>
+                    <div>
+                        {{ render_field(rentForm.phone) }}
+                    </div>
+                    <div>
+                        {{ render_field(rentForm.date) }}
+                    </div>
+                    <div>
+                        {{ render_field(rentForm.message) }}
+                    </div>
+                    <button
+                        class="block w-full rounded-md bg-black p-2.5 text-sm text-white transition hover:shadow-lg">
+                        Оформить заказ
+                    </button>
+                </form>
+            </div>
+            <!-- Modal footer -->
+            <div class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b">
+                <button data-modal-hide="rentModalForm" type="button"
+                    class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10">Отмена</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+{% block pageScripts %}
+<script id="cartT" type="text/template">
+
+<% _.each(items, function (item) { %> 
+
+    <li class="flex py-6">
+        <div
+            class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+            <img src=<%= item.image %>
+                alt="Вело-жигуль" class="h-full w-full object-cover object-center">
+        </div>
+        <div class="ml-4 flex flex-1 flex-col">
+            <div>
+                <div
+                    class="flex justify-between text-base font-medium text-gray-900">
+                    <h3>
+                        <a href="#"><%= item.name %></a>
+                    </h3>
+                    <p class="ml-4"><%= item.price %> ₽</p>
+                </div>
+                <p class="mt-1 text-sm text-gray-500">Модель</p>
+            </div>
+        </div>
+    </li>
+<% }); %>
+
+</script>
+{% endblock pageScripts %}

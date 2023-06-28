@@ -1,0 +1,30 @@
+{% macro render_product_card(id,service_type,title,price,image,extra) %}
+<div class="{{ ('','product')[service_type == 2] }} w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow" data-name="{{title}}"
+    data-price="{{price}}" data-image="{{image}}" data-id="{{id}}">
+    <a href="#">
+        <img class="p-8 rounded-t-lg" src="{{image}}" alt="product image" />
+    </a>
+    <div class="px-5 pb-5">
+        <a href="#">
+            <h5 class="text-xl font-semibold tracking-tight text-gray-900 mb-2">{{title}}</h5>
+        </a>
+        <p class="mb-2">{{extra}}</p>
+        <div class="flex items-center justify-between">
+            <span class="text-3xl font-bold text-gray-900">{{price}}₽
+                {% if service_type == 1 %}
+                / час
+                {% endif %}
+            </span>
+            {% if service_type == 2 %}
+            <button href="#"
+                class="text-white bg-sky-500 hover:bg-sky-600 transition-all focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">В
+                корзину</button>
+            {% else %}
+            <button href="#"
+                data-modal-target="rentModalForm" data-modal-toggle="rentModalForm"
+                class="text-white bg-sky-500 hover:bg-sky-600 transition-all focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Аренда</button>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endmacro %}

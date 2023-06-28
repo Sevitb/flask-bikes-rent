@@ -1,0 +1,15 @@
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %}
+<div class="message-modal modal">
+    <p>{{ message }}</p>
+    <a href="#" rel="modal:close">Закрыть</a>
+</div>
+<script>
+    $(".message-modal").modal({
+      fadeDuration: 100
+    });
+  </script>
+{% endfor %}
+{% endif %}
+{% endwith %}
